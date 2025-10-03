@@ -1,352 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alpha Tech Solutions</title>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-* {margin:0; padding:0; box-sizing:border-box;}
-body {font-family:'Open Sans', sans-serif; line-height:1.6; color:#333;}
-a {text-decoration:none; color:inherit;}
+  <meta charset="UTF-8">
+  <title>Alpha Tech Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #003366;
+      color: white;
+      padding: 20px 50px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {font-size: 22px;}
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+    }
+    nav a:hover {color: #FFD700;}
+    
+    /* Hero Section */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1587202372775-98927c6adcf0?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+    }
+    .hero h2 {font-size: 48px; text-shadow: 2px 2px 6px #000;}
+    .hero p {margin: 20px 0; font-size: 20px;}
+    .btn {
+      background: #FFD700;
+      color: #003366;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .btn:hover {background: #ffcc00;}
 
-/* Navbar */
-nav {
-    position: fixed;
-    top:0; left:0;
-    width:100%;
-    background:#0B3D91;
-    color:white;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 30px;
-    z-index:1000;
-}
-nav .logo {font-family:'Montserrat', sans-serif; font-size:1.5rem;}
-nav ul {list-style:none; display:flex; gap:20px;}
-nav ul li a {color:white; transition:0.3s;}
-nav ul li a:hover {color:#f0a500;}
+    /* Services */
+    section {padding: 80px 20px;}
+    .services {
+      background: #fff url('https://images.unsplash.com/photo-1581092580497-e0d23cbdf1c5?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+      background-blend-mode: lighten;
+    }
+    .services h2 {text-align: center; font-size: 32px; margin-bottom: 40px;}
+    .service-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .card:hover {transform: translateY(-5px);}
+    .card img {width: 80px; margin-bottom: 15px;}
+    .card h3 {margin-bottom: 10px;}
 
-/* Hero Section */
-header {
-    background: url('https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') no-repeat center/cover;
-    height: 100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:white;
-    position:relative;
-}
-header::after {
-    content:"";
-    position:absolute;
-    top:0; left:0;
-    width:100%; height:100%;
-    background: rgba(0,0,0,0.5);
-}
-.hero-content {
-    position: relative;
-    max-width: 800px;
-}
-.hero-content h1 {font-family:'Montserrat', sans-serif; font-size:3rem; margin-bottom:1rem;}
-.hero-content p {font-size:1.2rem; margin-bottom:2rem;}
-.hero-content .btn {
-    display:inline-block;
-    background:#f0a500;
-    color:#0B3D91;
-    padding:12px 25px;
-    margin:5px;
-    border-radius:25px;
-    font-weight:bold;
-    transition:0.3s;
-}
-.hero-content .btn:hover {background:#d49b00;}
+    /* Quote Form */
+    .quote {
+      background: url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    .quote h2 {margin-bottom: 20px;}
+    form {
+      max-width: 600px;
+      margin: auto;
+      background: rgba(0,0,0,0.6);
+      padding: 30px;
+      border-radius: 15px;
+    }
+    form input, form textarea, form button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+    }
+    form input, form textarea {font-size: 16px;}
+    form button {
+      background: #FFD700;
+      color: #003366;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    form button:hover {background: #ffcc00;}
 
-/* Sections */
-section {padding:80px 20px 60px;}
-h2 {font-family:'Montserrat', sans-serif; font-size:2rem; margin-bottom:20px; color:#0B3D91; text-align:center;}
-.container {max-width:1200px; margin:0 auto;}
+    /* WhatsApp Button */
+    .whatsapp-btn {
+      display:inline-block;
+      margin-top:15px;
+      text-decoration:none;
+      background:#25D366;
+      color:#fff;
+      padding:12px 25px;
+      border-radius:8px;
+      font-weight:bold;
+    }
 
-/* About */
-.about {display:flex; flex-wrap:wrap; align-items:center; gap:30px;}
-.about img {flex:1; max-width:500px; border-radius:10px;}
-.about-text {flex:1;}
+    /* Contact */
+    .contact {text-align: center;}
+    .contact h2 {margin-bottom: 20px;}
+    .contact p {margin: 10px 0; font-size: 18px;}
 
-/* Services */
-.services-container {
-    padding:60px 20px;
-    border-radius:10px;
-    text-align:center;
-}
-.services {display:flex; flex-wrap:wrap; gap:20px; justify-content:center;}
-.service-card {
-    position:relative;
-    background: rgba(255,255,255,0.95);
-    padding:20px;
-    border-radius:10px;
-    flex:1 1 250px;
-    max-width:300px;
-    text-align:center;
-    transition:0.3s;
-    overflow:hidden;
-}
-.service-card::before {
-    content:"";
-    position:absolute;
-    top:0; left:0;
-    width:100%; height:100%;
-    background: url('https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') no-repeat center/cover;
-    opacity:0.1;
-    z-index:0;
-}
-.service-card i, .service-card h3, .service-card p {position:relative; z-index:1;}
-.service-card:hover {transform: translateY(-5px);}
+    /* Footer */
+    footer {
+      background: #003366;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+    }
 
-/* Get a Quote Section */
-.quote {
-    padding:60px 20px;
-    text-align:center;
-    border-radius:10px;
-    color:#333;
-    display:flex;
-    justify-content:center; /* center form horizontally */
-}
-
-.quote form {
-    background: rgba(255,255,255,0.95);
-    display:inline-block;
-    padding:30px;
-    border-radius:10px;
-    max-width:500px;
-    width:100%;
-    position:relative;
-    overflow:hidden;
-}
-
-.quote form::before {
-    content:"";
-    position:absolute;
-    top:0; left:0;
-    width:100%; height:100%;
-    background: url('https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') no-repeat center/cover;
-    opacity:0.1;
-    z-index:0;
-}
-
-.quote input, .quote textarea, .quote button {
-    position:relative;
-    z-index:1;
-    padding:12px;
-    border:1px solid #ccc;
-    border-radius:5px;
-    font-size:1rem;
-}
-
-/* Flex layout for rows */
-.quote .form-row {
-    display:flex;
-    gap:10px;
-    margin-bottom:15px;
-    flex-wrap:wrap;
-}
-
-/* Name left, Email right */
-.quote .form-row:nth-child(1) input { flex:1; }
-
-/* Message full width */
-.quote .form-row:nth-child(2) textarea { width:100%; }
-
-/* Phone number center */
-.quote .form-row:nth-child(3) { justify-content:center; }
-.quote .form-row:nth-child(3) input { width:70%; }
-
-/* Send button center */
-.quote .form-row:nth-child(4) { justify-content:center; }
-.quote button {
-    background:#0B3D91;
-    color:white;
-    border:none;
-    padding:12px 30px;
-    border-radius:25px;
-    cursor:pointer;
-    font-size:1rem;
-    transition:0.3s;
-}
-.quote button:hover {background:#0550a0;}
-
-/* Contact Section */
-.contact form {max-width:600px; margin:0 auto; display:flex; flex-direction:column; gap:15px;}
-.contact input, .contact textarea {padding:12px; border:1px solid #ccc; border-radius:5px; width:100%;}
-.contact button {background:#0B3D91; color:white; border:none; padding:12px; border-radius:25px; cursor:pointer; transition:0.3s;}
-.contact button:hover {background:#0550a0;}
-.contact-info {text-align:center; margin-top:30px;}
-
-/* Footer */
-footer {background:#0B3D91; color:white; text-align:center; padding:20px 10px;}
-footer a {color:white; margin:0 10px; transition:0.3s;}
-footer a:hover {color:#f0a500;}
-
-/* Responsive */
-@media(max-width:768px){
-    .about {flex-direction:column;}
-    nav ul {flex-direction:column; gap:10px; margin-top:10px;}
-}
-
-/* To offset fixed navbar */
-body {padding-top:70px;}
-
-/* Floating WhatsApp Button */
-.whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 30px;
-    right: 30px;
-    background-color: #25D366;
-    color: white;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 30px;
-    z-index: 1000;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-}
-.whatsapp-float:hover {
-    background-color: #1DA851;
-    transform: scale(1.1);
-}
-
-</style>
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h2 {font-size: 32px;}
+      header {flex-direction: column;}
+      nav {margin-top: 10px;}
+    }
+  </style>
 </head>
-
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/94779673431" target="_blank" class="whatsapp-float">
-    <i class="fab fa-whatsapp"></i>
-</a>
-
-
 <body>
+  <!-- Header -->
+  <header>
+    <h1>Alpha Tech Solutions</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#quote">Get a Quote</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<!-- Navbar -->
-<nav>
-    <div class="logo">Alpha Tech Solutions</div>
-    <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#quote">Get a Quote</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
-
-<!-- Hero Section -->
-<header>
-    <div class="hero-content">
-        <h1>Reliable IT Services for Your Home & Business</h1>
-        <p>Computer & Laptop Repair | CCTV Installation & Repair | IT Support</p>
-        <a href="#quote" class="btn">Get a Free Quote</a>
-        <a href="#services" class="btn">Our Services</a>
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div>
+      <h2>Reliable IT & Tech Services</h2>
+      <p>Computer & Laptop Repair | CCTV Installation & Repair | IT Solutions</p>
+      <a href="#quote" class="btn">Get a Free Quote</a>
     </div>
-</header>
+  </section>
 
-<!-- About Section -->
-<section id="about">
-    <div class="container about">
-        <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="About Us">
-        <div class="about-text">
-            <h2>About Alpha Tech Solutions</h2>
-            <p>Alpha Tech Solutions is your trusted partner for all IT services. We specialize in computer and laptop repair, CCTV installation and repair, and a wide range of IT solutions. Our team is dedicated to providing fast, reliable, and affordable services to keep your devices and security systems running smoothly.</p>
-        </div>
+  <!-- Services -->
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+    <div class="service-container">
+      <div class="card">
+        <img src="https://img.icons8.com/ios-filled/100/000000/computer-support.png" alt="Computer Repair">
+        <h3>Computer & Laptop Repair</h3>
+        <p>Hardware & software repairs, upgrades, and troubleshooting.</p>
+      </div>
+      <div class="card">
+        <img src="https://img.icons8.com/ios-filled/100/000000/cctv.png" alt="CCTV">
+        <h3>CCTV Installation</h3>
+        <p>Professional CCTV setup, maintenance, and monitoring solutions.</p>
+      </div>
+      <div class="card">
+        <img src="https://img.icons8.com/ios-filled/100/000000/network.png" alt="IT Services">
+        <h3>Other IT Services</h3>
+        <p>Networking, software installation, and IT consultation for your business.</p>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- Services Section -->
-<section id="services">
-    <div class="services-container container">
-        <h2>Our Services</h2>
-        <div class="services">
-            <div class="service-card">
-                <i class="fas fa-laptop-code"></i>
-                <h3>Computer & Laptop Repair</h3>
-                <p>Virus removal, software troubleshooting, hardware upgrades, screen repair.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-video"></i>
-                <h3>CCTV Installation</h3>
-                <p>CCTV setup for home or business, camera configuration, network setup.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-tools"></i>
-                <h3>CCTV Repair & Maintenance</h3>
-                <p>Faulty camera repair, DVR troubleshooting, system upgrades.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-network-wired"></i>
-                <h3>IT Support & Networking</h3>
-                <p>Router setup, Wi-Fi troubleshooting, software installation.</p>
-            </div>
-        </div>
-    </div>
-</section>
+  <!-- Quote Form -->
+  <section class="quote" id="quote">
+    <h2>Get a Free Quote</h2>
+    <form action="https://formspree.io/f/xpwyrojj" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+      <input type="text" name="phone" placeholder="Phone Number" required>
+      <button type="submit">Send Message</button>
+    </form>
 
-<!-- Get a Free Quote Section -->
-<section id="quote">
-    <div class="quote">
-        <form>
-            <div class="form-row">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-            </div>
-            <div class="form-row">
-                <textarea placeholder="Your Message" rows="5" required></textarea>
-            </div>
-            <div class="form-row">
-                <input type="tel" placeholder="Phone Number" required>
-            </div>
-            <div class="form-row">
-                <button type="submit">Send Message</button>
-            </div>
-        </form>
-    </div>
-</section>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/94779673431?text=Hello%20Alpha%20Tech%20Solutions,%20I%20want%20a%20quotation." 
+       target="_blank" class="whatsapp-btn">💬 Send via WhatsApp</a>
+  </section>
 
-<!-- Contact Section -->
-<section id="contact">
-    <div class="container contact">
-        <h2>Contact</h2>
-        <div class="contact-info">
-            <p>Owner: Ryan Dulanjana</p>
-            <p>Phone / WhatsApp: 077-9673431</p>
-            <p>Email: alphatcom1@gmail.com</p>
-            <p>Address: Your Business Location</p>
-        </div>
-    </div>
-</section>
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p><strong>Owner:</strong> Ryan Dulanjana</p>
+    <p><strong>Phone:</strong> 077-9673431</p>
+    <p><strong>Email:</strong> alpha.tcom1@gmail.com</p>
+  </section>
 
-<!-- Footer -->
-<footer>
-    <p>© Since 2015-2025 Alpha Tech Solutions. All Rights Reserved.</p>
-    <p>
-        <a href="#">Home</a> |
-        <a href="#about">About</a> |
-        <a href="#services">Services</a> |
-        <a href="#quote">Get a Quote</a> |
-        <a href="#contact">Contact</a>
-    </p>
-    <p>
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#"><i class="fab fa-whatsapp"></i></a>
-    </p>
-</footer>
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Alpha Tech Solutions | All Rights Reserved</p>
+  </footer>
 
+  <!-- Smooth Scroll -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 </body>
 </html>
