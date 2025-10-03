@@ -5,12 +5,10 @@
 <title>Alpha Tech Solutions</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Alpha Tech Solutions - Computer & Laptop Repair, CCTV Installation & Repair, IT Solutions in Sri Lanka.">
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-  /* Reset & Global */
   *{margin:0; padding:0; box-sizing:border-box;}
-  body{font-family:'Poppins', sans-serif; line-height:1.6; background:#f0f2f5; color:#333;}
+  body{font-family:'Poppins',sans-serif; line-height:1.6; background:#f0f2f5; color:#333;}
   a{text-decoration:none;}
   section{padding:80px 20px;}
   
@@ -21,11 +19,12 @@
   header h1{font-size:22px;}
   nav a{color:white; margin-left:20px; font-weight:500; transition:0.3s;}
   nav a:hover{color:#FFD700;}
-  
+
   /* Hero */
   .hero{
     height:100vh; display:flex; justify-content:center; align-items:center; text-align:center; color:white; position:relative;
-    background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1587202372775-98927c6adcf0?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+    background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/hero-bg.jpg') no-repeat center center/cover;
+    overflow:hidden;
   }
   .hero h2{font-size:48px; margin-bottom:15px; opacity:0; transform:translateY(20px); animation:fadeUp 1s forwards 0.3s;}
   .hero p{font-size:20px; margin-bottom:30px; opacity:0; transform:translateY(20px); animation:fadeUp 1s forwards 0.6s;}
@@ -33,13 +32,25 @@
     background: linear-gradient(90deg,#FFD700,#ffcc00); color:#003366; padding:14px 30px; border-radius:30px; font-weight:bold; display:inline-block; transition:0.4s; opacity:0; transform:translateY(20px); animation:fadeUp 1s forwards 0.9s;
   }
   .btn:hover{transform:scale(1.05); box-shadow:0 6px 15px rgba(0,0,0,0.3);}
-  @keyframes fadeUp{to{opacity:1; transform:translateY(0);}}
   
-  /* Services */
-  .services h2{text-align:center; font-size:32px; margin-bottom:40px;}
-  .service-container{
-    display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; max-width:1100px; margin:auto;
+  /* Floating tech icons */
+  .hero-icon{
+    position:absolute; width:80px; opacity:0.3; animation:floatUpDown 4s ease-in-out infinite alternate;
   }
+  .icon1{top:50px; left:30px;}
+  .icon2{top:150px; right:50px; animation-delay:1s;}
+  .icon3{bottom:100px; left:100px; animation-delay:2s;}
+  @keyframes floatUpDown{0%{transform:translateY(0);}100%{transform:translateY(-20px);}}
+  @keyframes fadeUp{to{opacity:1; transform:translateY(0);}}
+
+  /* Services */
+  .services{position:relative; z-index:1;}
+  .services::before{
+    content:""; position:absolute; top:0; left:0; width:100%; height:100%;
+    background:url('images/services-bg.jpg') no-repeat center/cover; opacity:0.1; filter:blur(3px); z-index:-1;
+  }
+  .services h2{text-align:center; font-size:32px; margin-bottom:40px; color:#003366;}
+  .service-container{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; max-width:1100px; margin:auto;}
   .card{
     background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); padding:30px; border-radius:20px; text-align:center; box-shadow:0 8px 25px rgba(0,0,0,0.2); transition:0.4s;
   }
@@ -47,7 +58,7 @@
   .card img{width:80px; margin-bottom:15px;}
   .card h3{margin-bottom:10px; font-weight:600;}
   .card p{color:#fff;}
-  
+
   /* Quote Form */
   .quote{
     background: url('images/get_free_quote.jpg') no-repeat center center/cover;
@@ -56,35 +67,31 @@
   .quote::before{content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7);}
   .quote h2{position:relative; z-index:1; margin-bottom:30px; font-size:36px;}
   form{
-    position:relative; z-index:1; max-width:600px; margin:auto; background:rgba(255,255,255,0.1); padding:30px; border-radius:20px; backdrop-filter:blur(10px);
+    position:relative; z-index:1; max-width:600px; margin:auto; background:rgba(255,255,255,0.1); padding:30px; border-radius:20px; backdrop-filter:blur(10px); border:4px solid; border-image: linear-gradient(45deg,#FFD700,#ffcc00,#003366) 1; animation:gradientBorder 5s linear infinite;
   }
+  @keyframes gradientBorder{0%{border-image:linear-gradient(45deg,#FFD700,#ffcc00,#003366)1;}50%{border-image:linear-gradient(45deg,#003366,#FFD700,#ffcc00)1;}100%{border-image:linear-gradient(45deg,#FFD700,#ffcc00,#003366)1;}}
   .form-group{position:relative; margin-top:20px;}
   input, textarea, select{
     width:100%; padding:14px 16px; border:none; border-radius:10px; font-size:16px; background:rgba(255,255,255,0.2); color:#fff; outline:none;
   }
-  label{
-    position:absolute; top:-10px; left:15px; background:rgba(0,0,0,0.6); padding:0 5px; font-size:14px; color:#FFD700;
-  }
-  button{
-    margin-top:20px; width:100%; padding:15px; border:none; border-radius:30px; background:linear-gradient(90deg,#FFD700,#ffcc00); color:#003366; font-weight:bold; cursor:pointer; transition:0.4s;
-  }
+  label{position:absolute; top:-10px; left:15px; background:rgba(0,0,0,0.6); padding:0 5px; font-size:14px; color:#FFD700;}
+  button{margin-top:20px; width:100%; padding:15px; border:none; border-radius:30px; background:linear-gradient(90deg,#FFD700,#ffcc00); color:#003366; font-weight:bold; cursor:pointer; transition:0.4s;}
   button:hover{transform:scale(1.05); box-shadow:0 6px 20px rgba(0,0,0,0.3);}
   .success-message{display:none; margin-top:15px; color:#0f0; font-weight:bold; animation:fadeUp 1s;}
-  
+
   /* WhatsApp */
   .whatsapp-btn{display:inline-block; margin-top:20px; background:#25D366; color:#fff; padding:14px 30px; border-radius:30px; font-weight:bold; animation:pulse 2s infinite;}
   @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
-  
+
   /* Contact */
   .contact{text-align:center;}
   .contact h2{margin-bottom:30px;}
   .contact p{margin:10px 0; font-size:18px;}
   .contact .info-card{background:rgba(255,255,255,0.1); backdrop-filter:blur(10px); display:inline-block; padding:20px; margin:10px; border-radius:15px; box-shadow:0 6px 20px rgba(0,0,0,0.2);}
-  
+
   /* Footer */
   footer{background:linear-gradient(90deg,#003366,#001f3f); color:white; text-align:center; padding:20px;}
-  
-  /* Responsive */
+
   @media(max-width:768px){.hero h2{font-size:32px;}.hero p{font-size:16px;}.header{flex-direction:column;}.service-container{grid-template-columns:1fr;}}
 </style>
 </head>
@@ -108,6 +115,9 @@
     <p>Computer & Laptop Repair | CCTV Installation & Repair | IT Solutions</p>
     <a href="#quote" class="btn">Get a Free Quote</a>
   </div>
+  <img src="images/tech-icon1.png" class="hero-icon icon1">
+  <img src="images/tech-icon2.png" class="hero-icon icon2">
+  <img src="images/tech-icon3.png" class="hero-icon icon3">
 </section>
 
 <!-- Services -->
@@ -182,7 +192,6 @@
 <p>© 2025 Alpha Tech Solutions | All Rights Reserved</p>
 </footer>
 
-<!-- Scripts -->
 <script>
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
@@ -191,7 +200,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
     document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:'smooth'});
   });
 });
-
 // Form success message
 const form=document.getElementById('quoteForm');
 const successMessage=document.getElementById('successMessage');
